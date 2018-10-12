@@ -1,11 +1,23 @@
-# Inherit full common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_full.mk)
+# Telephony
+IS_PHONE := true
 
-# Required packages
+# World APN list
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
+
+# Telephony packages
 PRODUCT_PACKAGES += \
-    LatinIME
+    Stk \
+    CellBroadcastReceiver
 
-# Include Lineage LatinIME dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/lineage/overlay/dictionaries
+# Tethering - allow without requiring a provisioning app
+# (for devices that check this)
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    net.tethering.noprovisioning=true
 
-$(call inherit-product, vendor/lineage/config/telephony.mk)
+# Default ringtone
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.config.ringtone=Ring_Synth_04.ogg
+
+# Inherit full common AOSP stuff
+$(call inherit-product, vendor/aosp/config/common_full.mk)
