@@ -7,6 +7,7 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # spn-conf
+PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/selective-spn-conf.xml:system/etc/selective-spn-conf.xml
 
 # Telephony packages
