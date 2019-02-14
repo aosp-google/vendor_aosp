@@ -6,6 +6,9 @@ IS_PHONE := true
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml
 
+# spn-conf
+    vendor/aosp/prebuilt/common/etc/selective-spn-conf.xml:system/etc/selective-spn-conf.xml
+
 # Telephony packages
 PRODUCT_PACKAGES += \
     Stk \
